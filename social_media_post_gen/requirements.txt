@@ -1,0 +1,10 @@
+torch
+pandas
+nltk
+transformers
+datasets
+playwright
+peft
+evaluate
+scikit-learn
+openpyxl
