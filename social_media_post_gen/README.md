@@ -33,6 +33,7 @@ The pipeline transforms a raw URL into a series of social media post variations 
 Scrape content and generate summaries from a list of URLs:
 ```bash
 python data_processing.py input_data.xlsx
+```
 
 ### 2. Training the Models
 You can train the model using two different Parameter-Efficient Fine-Tuning (PEFT) methods:
@@ -40,15 +41,18 @@ You can train the model using two different Parameter-Efficient Fine-Tuning (PEF
 * **LoRA Fine-Tuning**: Run the tuning script using the preprocessed data to fine-tune the base model with LoRA. 
   ```bash
   python lora_tuning.py data_path output_path epochs lr batch_size lora_r lora_alpha lora_dropout
+  ```
 
-**Prompt Tuning**: Run the prompt tuning script using the preprocessed data to train virtual tokens on the model. 
-```bash
-python prompt_tuning.py data_path output_path num_vir_tokens num_epochs lr batch_size
+* **Prompt Tuning**: Run the prompt tuning script using the preprocessed data to train virtual tokens on the model. 
+    ```bash
+    python prompt_tuning.py data_path output_path num_vir_tokens num_epochs lr batch_size
+    ```
 
 ### 3. Generating Content
 Run the generation script to create social media posts from summaries:
 ```bash
 python post_generation.py model_path data_path output_path num_posts temp top_p max_new_tokens
+```
 
 Use --analyze if you wish to evaluate generated posts using the ROUGE metric.
 
